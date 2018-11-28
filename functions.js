@@ -52,7 +52,6 @@ function piercingButton() {
 	document.getElementById("piercingresult").innerHTML = piercing(current, extra);
 }
 
-
 /*
 function breakpointButton() {
 	var attack  = document.getElementById("breakpoint").value;
