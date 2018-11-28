@@ -13,6 +13,17 @@ function attack(current,extra){
 	return 100*extra/current;
 }
 
+function piercing(current, extra){
+	current = parseFloat(current)/100;
+	extra = parseFloat(extra)/100;
+	extra = current + extra;
+
+	currDMG = 1 / Math.max(1- current, 0.7);
+	extraDMG = 1 / Math.max(1- extra, 0.7);
+	
+	return 100*(extraDMG - currDMG);
+}
+
 function breakpoint(attack){
 	attack = parseFloat(attack);
 	var blob = (12+attack)/attack;
@@ -20,6 +31,7 @@ function breakpoint(attack){
 	var bot = blob - 1;
 	return top/bot;
 }
+
 
 function damageButton() {
 	var current  = document.getElementById("currentdmg").value;
@@ -34,7 +46,16 @@ function attackButton() {
 	document.getElementById("breakpointresult").innerHTML = breakpoint(current);
 }
 
+function piercingButton() {
+	var current  = document.getElementById("pcurrent").value;
+	var extra  = document.getElementById("pextra").value;
+	document.getElementById("piercingresult").innerHTML = piercing(current, extra);
+}
+
+
+/*
 function breakpointButton() {
 	var attack  = document.getElementById("breakpoint").value;
 	document.getElementById("breakpointresult").innerHTML = breakpoint(attack);
 }
+*/
