@@ -1,0 +1,15 @@
+body{
+    padding-top: 50px;
+}
+
+h2{
+    padding-bottom: 20px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: blue; /* old IE */
+    background-color: blue; /* Modern Browsers */
+}
