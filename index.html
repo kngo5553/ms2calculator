@@ -8,94 +8,108 @@
 </header>
 
 <body>
-    <div class="row justify-content-center">
-        <div class="col-lg-1">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-1">
+            </div>
+
+            <div class="alert alert-primary col-lg-10 col-11" role="alert">
+                <b>Note:</b> Put negative values into "Extra" fields when calculating a loss.
+            </div>
+            <div class="col-lg-1">
+            </div>
+
+            <div class="col-lg-1">
+            </div>
+            <div id="container1" class="col-lg col-11">
+                <h2>Damage % Increase</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="currentdmg">Current Total %</label>
+                        <input type="text" class="form-control" id="currentdmg" value="0">
+                        <small id="totaldmghelp" class="form-text text-muted">The total % of all sources: boss,
+                            melee/ranged, elemental, total, etc.</small>
+                        <p></p>
+                        <label for="extradmg">Extra %</label>
+                        <input type="text" class="form-control" id="extradmg" value="1">
+                        <small id="extradmghelp" class="form-text text-muted">The extra line of damage % that you are
+                            going
+                            to add.</small>
+                    </div>
+
+                    <button onclick="damageButton()" id="damagebutton" type="button" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+            <div id="container2" class="col-lg col-11">
+                <h2>Attack % Increase</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="currentatk">Current Attack</label>
+                        <input type="text" class="form-control" id="currentatk" value="237">
+                        <small id="currentatkhelp" class="form-text text-muted">Your current physical/magical attack
+                            value.</small>
+                        <p></p>
+                        <label for="extraatk">Extra Attack</label>
+                        <input type="text" class="form-control" id="extraatk" value="1">
+                        <small id="extraatkhelp" class="form-text text-muted">The extra line of attack that you are
+                            doing
+                            to add.</small>
+                    </div>
+
+                    <button onclick="attackButton()" id="attackbutton" type="button" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+            <div id="container3" class="col-lg col-11">
+                <h2>Piercing % Increase</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="pcurrent">Current Piercing %</label>
+                        <input type="text" class="form-control" id="pcurrent" value="0">
+                        <small id="pcurrenthelp" class="form-text text-muted">Your current piercing value.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pextra">Extra Piercing %</label>
+                        <input type="text" class="form-control" id="pextra" value="1">
+                        <small id="pextrahelp" class="form-text text-muted">The extra line of piercing % that you are
+                            adding.</small>
+                    </div>
+
+                    <button onclick="piercingButton()" id="piercingbutton" type="button" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+            <div class="col-lg-1">
+            </div>
         </div>
-        <div id="container1" class="col-lg col-md-11">
-            <h2>Damage % Increase</h2>
-            <form>
-                <div class="form-group">
-                    <label for="currentdmg">Current Total %</label>
-                    <input type="text" class="form-control" id="currentdmg" value="0">
-                    <small id="totaldmghelp" class="form-text text-muted">The total % of all sources: boss,
-                        melee/ranged, elemental, total, etc.</small>
-                    <p></p>
-                    <label for="extradmg">Extra %</label>
-                    <input type="text" class="form-control" id="extradmg" value="1">
-                    <small id="extradmghelp" class="form-text text-muted">The extra line of damage % that you are going
-                        to add.</small>
-                </div>
 
-                <button onclick="damageButton()" id="damagebutton" type="button" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
+        <hr class="col-lg-10 col-10">
 
-        <div id="container2" class="col-lg col-md-11">
-            <h2>Attack % Increase</h2>
-            <form>
-                <div class="form-group">
-                    <label for="currentatk">Current Attack</label>
-                    <input type="text" class="form-control" id="currentatk" value="237">
-                    <small id="currentatkhelp" class="form-text text-muted">Your current physical/magical attack value.</small>
-                    <p></p>
-                    <label for="extraatk">Extra Attack</label>
-                    <input type="text" class="form-control" id="extraatk" value="1">
-                    <small id="extraatkhelp" class="form-text text-muted">The extra line of attack that you are doing
-                        to add.</small>
-                </div>
+        <div class="row">
 
-                <button onclick="attackButton()" id="attackbutton" type="button" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
+            <div class="col-lg" style="text-align: center;">
+                <h2>Results</h2>
 
-        <div id="container3" class="col-lg col-md-11">
-            <h2>Piercing % Increase</h2>
-            <form>
-                <div class="form-group">
-                    <label for="pcurrent">Current Piercing %</label>
-                    <input type="text" class="form-control" id="pcurrent" value="0">
-                    <small id="pcurrenthelp" class="form-text text-muted">Your current piercing value.</small>
-                </div>
+                <b>Damage % Increase: </b>
+                <span id="damageresult">0</span>%
 
-                <div class="form-group">
-                    <label for="pextra">Extra Piercing %</label>
-                    <input type="text" class="form-control" id="pextra" value="1">
-                    <small id="pextrahelp" class="form-text text-muted">The extra line of piercing % that you are adding.</small>
-                </div>
+                <p></p>
+                <b>Attack % Increase: </b>
+                <span id="attackresult">0</span>%
 
-                <button onclick="piercingButton()" id="piercingbutton" type="button" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
+                <p></p>
+                <b>Piercing % Increase: </b>
+                <span id="piercingresult">0</span>%
 
-        <div class="col-lg-1">
+                <p></p>
+                <b>Breakpoint %: </b>
+                <span id="breakpointresult">0</span>%
+            </div>
+
         </div>
     </div>
-
-    <hr class="col-lg-11">
-
-    <div class="row">
-
-        <div class="col-lg" style="text-align: center;">
-            <h2>Results</h2>
-
-            <b>Damage % Increase: </b>
-            <span id="damageresult">0</span>%
-
-            <p></p>
-            <b>Attack % Increase: </b>
-            <span id="attackresult">0</span>%
-
-            <p></p>
-            <b>Piercing % Increase: </b>
-            <span id="piercingresult">0</span>%
-
-            <p></p>
-            <b>Breakpoint %: </b>
-            <span id="breakpointresult">0</span>%
-        </div>
-
-    </div>
-
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
